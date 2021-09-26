@@ -1,0 +1,562 @@
+@font-face {
+  font-family: "KhmerFallback";
+  src: url("./assets/Khmer-Regular.woff") format("woff"),
+    url("./assets/Khmer-Regular.ttf") format("truetype");
+}
+:root {
+  --background: #124734;
+  font-family: "Khmer" "KhmerFallback";
+}
+
+body {
+  background-color: var(--background);
+  margin: 0;
+}
+main {
+  text-align: center;
+}
+.map-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
+  position: relative;
+  max-height: 100vh;
+}
+.map {
+  max-width: 100%;
+  max-height: 100vh;
+  display: block;
+}
+
+audio {
+  position: fixed;
+  left: calc(50%);
+  transform: translate(-50%);
+  bottom: 17%;
+  display: none;
+}
+
+.audio-26-01 {
+  transform: translateY(103%) translateX(-50%);
+}
+.show {
+  display: block;
+}
+
+img:hover {
+  display: block;
+}
+
+.icon {
+  position: absolute;
+  cursor: pointer;
+}
+
+.icon:hover:not(.icon-2, .label-2, .icon-8, .label-8, .label-22, .icon-27, .label-27, .icon-32, .label-32, .icon-33, .label-33) {
+  transform: scale(1.2);
+}
+
+.element:hover {
+  display: block;
+}
+
+.icon-1 {
+  bottom: 42.1%;
+  right: 23.9%;
+  height: 3.4%;
+}
+
+.icon-1 {
+  bottom: 42.1%;
+  right: 23.9%;
+  height: 3.4%;
+}
+
+.icon-2 {
+  bottom: 34.8%;
+  right: 37.6%;
+  height: 5.8%;
+  cursor: not-allowed;
+}
+
+.icon-3 {
+  bottom: 45%;
+  right: 30.5%;
+  height: 3.4%;
+}
+
+.icon-4 {
+  bottom: 33.1%;
+  right: 31.9%;
+  height: 2.3%;
+}
+
+.icon-5 {
+  bottom: 36%;
+  right: 32.9%;
+  height: 2.7%;
+}
+
+.icon-6 {
+  bottom: 32.4%;
+  right: 41%;
+  height: 7.3%;
+}
+
+.icon-7 {
+  bottom: 40.8%;
+  right: 37.8%;
+  height: 3.4%;
+}
+
+.icon-8 {
+  bottom: 45.7%;
+  right: 34.3%;
+  height: 5.7%;
+}
+
+.icon-9 {
+  bottom: 81.1%;
+  right: 36.9%;
+  height: 3.4%;
+}
+
+.icon-10 {
+  bottom: 58.5%;
+  right: 29.9%;
+  height: 3.2%;
+}
+
+.icon-11 {
+  bottom: 52.1%;
+  right: 51.9%;
+  height: 2.6%;
+}
+
+.icon-12 {
+  bottom: 44.9%;
+  right: 55%;
+  height: 3.7%;
+}
+
+.icon-13 {
+  bottom: 49.1%;
+  right: 47.6%;
+  height: 3.1%;
+}
+
+.icon-14 {
+  bottom: 45.1%;
+  right: 48.7%;
+  height: 3%;
+}
+
+.icon-15 {
+  bottom: 32.7%;
+  right: 47.9%;
+  height: 2.6%;
+}
+
+.icon-16 {
+  bottom: 25.1%;
+  right: 46%;
+  height: 3.8%;
+}
+
+.icon-17 {
+  bottom: 16.1%;
+  right: 63.9%;
+  height: 5.4%;
+}
+
+.icon-18 {
+  bottom: 28.6%;
+  right: 39.7%;
+  height: 3.1%;
+}
+
+.icon-19 {
+  bottom: 38.1%;
+  right: 24.3%;
+  height: 3.4%;
+}
+
+.icon-20 {
+  bottom: 31.6%;
+  right: 25.6%;
+  height: 2.7%;
+}
+
+.icon-21 {
+  bottom: 25.1%;
+  right: 19.4%;
+  height: 8.3%;
+}
+
+.icon-23 {
+  bottom: 27.1%;
+  right: 27.7%;
+  height: 4.5%;
+}
+
+.icon-24 {
+  bottom: 33.4%;
+  right: 18.2%;
+  height: 6.4%;
+}
+
+.icon-25 {
+  bottom: 8.1%;
+  right: 27.9%;
+  height: 4.4%;
+}
+
+.icon-26 {
+  bottom: 84.1%;
+  right: 25.4%;
+  height: 3.6%;
+}
+
+.icon-27 {
+  bottom: 58.5%;
+  right: 3.5%;
+  height: 6.4%;
+}
+
+.icon-28 {
+  bottom: 67.3%;
+  right: 61.4%;
+  height: 6.4%;
+}
+
+.icon-29 {
+  bottom: 48.1%;
+  right: 72.5%;
+  height: 6%;
+}
+
+.icon-30 {
+  bottom: 66.3%;
+  right: 72.5%;
+  height: 5.9%;
+}
+
+.icon-31 {
+  bottom: 85%;
+  right: 72.9%;
+  height: 8.4%;
+}
+
+.icon-32 {
+  bottom: 16.5%;
+  right: 72.4%;
+  height: 6.4%;
+}
+
+.icon-33 {
+  bottom: 11.5%;
+  right: 72.4%;
+  height: 6.4%;
+}
+
+.icon-34 {
+  bottom: 80.1%;
+  right: 86.8%;
+  height: 6.9%;
+}
+
+.label {
+  position: absolute;
+  transform: scale(51%) translateX(80%) translateY(-50%);
+  cursor: pointer;
+}
+.label:not(.show) {
+  display: none;
+}
+
+.label-1 {
+  bottom: 41.1%;
+  right: 21.9%;
+}
+
+.label-2 {
+  bottom: 35.8%;
+  right: 34.6%;
+  cursor: not-allowed;
+}
+
+.label-3 {
+  bottom: 45%;
+  right: 29.5%;
+}
+
+.label-4 {
+  bottom: 31.1%;
+  right: 31.3%;
+}
+
+.label-5 {
+  bottom: 35%;
+  right: 31.9%;
+}
+
+.label-6 {
+  bottom: 35.4%;
+  right: 39%;
+}
+
+.label-7 {
+  bottom: 40.8%;
+  right: 37.8%;
+}
+
+.label-8 {
+  bottom: 45.7%;
+  right: 34.3%;
+}
+
+.label-9 {
+  bottom: 81.1%;
+  right: 36.9%;
+}
+
+.label-10 {
+  bottom: 57.5%;
+  right: 27.9%;
+}
+
+.label-11 {
+  bottom: 49.1%;
+  right: 49.9%;
+}
+
+.label-12 {
+  bottom: 41.9%;
+  right: 53%;
+}
+
+.label-13 {
+  bottom: 48.1%;
+  right: 46.6%;
+}
+
+.label-14 {
+  bottom: 44.1%;
+  right: 47.7%;
+}
+
+.label-15 {
+  bottom: 29.7%;
+  right: 45.9%;
+}
+
+.label-16 {
+  bottom: 23.1%;
+  right: 45%;
+}
+
+.label-17 {
+  bottom: 16.1%;
+  right: 63.9%;
+}
+
+.label-18 {
+  bottom: 27.6%;
+  right: 37%;
+}
+
+.label-19 {
+  bottom: 38.1%;
+  right: 24.3%;
+}
+
+.label-20 {
+  bottom: 31.6%;
+  right: 25.6%;
+}
+
+.label-21 {
+  bottom: 16.1%;
+  right: 19.4%;
+}
+
+.label-22 {
+  bottom: 27.4%;
+  right: 19.4%;
+}
+
+.label-23 {
+  bottom: 26.1%;
+  right: 25.7%;
+}
+
+.label-24 {
+  bottom: 33.4%;
+  right: 18.2%;
+}
+
+.label-25 {
+  bottom: 9.1%;
+  right: 31.9%;
+}
+
+.label-26 {
+  bottom: 84.1%;
+  right: 25.4%;
+}
+
+.label-27 {
+  bottom: 58.5%;
+  right: 3.5%;
+}
+
+.label-28 {
+  bottom: 67.3%;
+  right: 61.4%;
+}
+
+.label-29 {
+  bottom: 48.1%;
+  right: 70.5%;
+}
+
+.label-30 {
+  bottom: 67.3%;
+  right: 70.5%;
+}
+
+.label-31 {
+  bottom: 85%;
+  right: 72.9%;
+}
+
+.label-32 {
+  bottom: 18.5%;
+  right: 70.4%;
+}
+
+.label-33 {
+  bottom: 13.5%;
+  right: 71.4%;
+}
+
+.label-34 {
+  bottom: 80.1%;
+  right: 86.8%;
+}
+
+.icon-1:hover ~ .label-1 {
+  display: block;
+}
+.icon-2:hover ~ .label-2 {
+  display: block;
+}
+.icon-3:hover ~ .label-3 {
+  display: block;
+}
+.icon-4:hover ~ .label-4 {
+  display: block;
+}
+.icon-5:hover ~ .label-5 {
+  display: block;
+}
+.icon-6:hover ~ .label-6 {
+  display: block;
+}
+.icon-7:hover ~ .label-7 {
+  display: block;
+}
+.icon-8:hover ~ .label-8 {
+  display: block;
+}
+.icon-9:hover ~ .label-9 {
+  display: block;
+}
+.icon-10:hover ~ .label-10 {
+  display: block;
+}
+.icon-11:hover ~ .label-11 {
+  display: block;
+}
+.icon-12:hover ~ .label-12 {
+  display: block;
+}
+.icon-13:hover ~ .label-13 {
+  display: block;
+}
+.icon-14:hover ~ .label-14 {
+  display: block;
+}
+.icon-15:hover ~ .label-15 {
+  display: block;
+}
+.icon-16:hover ~ .label-16 {
+  display: block;
+}
+.icon-17:hover ~ .label-17 {
+  display: block;
+}
+.icon-18:hover ~ .label-18 {
+  display: block;
+}
+.icon-19:hover ~ .label-19 {
+  display: block;
+}
+.icon-20:hover ~ .label-20 {
+  display: block;
+}
+.icon-21:hover ~ .label-21 {
+  display: block;
+}
+.icon-21:hover ~ .label-22 {
+  display: block;
+}
+.icon-23:hover ~ .label-23 {
+  display: block;
+}
+.icon-24:hover ~ .label-24 {
+  display: block;
+}
+.icon-25:hover ~ .label-25 {
+  display: block;
+}
+.icon-26:hover ~ .label-26 {
+  display: block;
+}
+.icon-27:hover ~ .label-27 {
+  display: block;
+}
+.icon-28:hover ~ .label-28 {
+  display: block;
+}
+.icon-29:hover ~ .label-29 {
+  display: block;
+}
+.icon-30:hover ~ .label-30 {
+  display: block;
+}
+.icon-31:hover ~ .label-31 {
+  display: block;
+}
+.icon-32:hover ~ .label-32 {
+  display: block;
+}
+.icon-33:hover ~ .label-33 {
+  display: block;
+}
+.icon-34:hover ~ .label-34 {
+  display: block;
+}
+
+.icon-2,
+.label-2,
+.icon-8,
+.label-8,
+.icon-27,
+.label-27,
+.icon-32,
+.label-32,
+.icon-33,
+.label-33 {
+  cursor: not-allowed;
+}
