@@ -76,7 +76,6 @@ img:hover {
   bottom: 34.8%;
   right: 37.6%;
   height: 5.8%;
-  cursor: not-allowed;
 }
 
 .icon-3 {
@@ -282,7 +281,6 @@ img:hover {
 .label-2 {
   bottom: 35.8%;
   right: 34.6%;
-  cursor: not-allowed;
 }
 
 .label-3 {
@@ -558,5 +556,5 @@ img:hover {
 .label-32,
 .icon-33,
 .label-33 {
-  cursor: not-allowed;
+  cursor: initial;
 }
