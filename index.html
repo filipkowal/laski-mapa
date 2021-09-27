@@ -96,10 +96,6 @@
         <source src="./assets/NAGRANIA/4.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
-      <audio controls class="audio-4">
-        <source src="./assets/NAGRANIA/4.mp3" type="audio/mp3" />
-        Your browser does not support the audio element.
-      </audio>
       <audio controls class="audio-5">
         <source src="./assets/NAGRANIA/5.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
@@ -114,6 +110,10 @@
       </audio>
       <audio controls class="audio-9">
         <source src="./assets/NAGRANIA/9.mp3" type="audio/mp3" />
+        Your browser does not support the audio element.
+      </audio>
+      <audio controls class="audio-10">
+        <source src="./assets/NAGRANIA/10.mp3" type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
       <audio controls class="audio-11">
@@ -212,44 +212,40 @@
 
       iconsAndLabels.forEach((img) =>
         img.addEventListener("click", () => {
-          let elementNumber = RegExp(/\d+\.png$/)
+          const elementNumber = RegExp(/\d+\.png$/)
             .exec(img.src)[0]
             .slice(0, -4);
-          console.log(elementNumber);
-          let audioElement = document.querySelector(".audio-" + elementNumber);
-          let labelElement = labels.find((label) =>
-            label.className.includes(elementNumber)
-          );
+          const audioElement =
+            elementNumber === "22"
+              ? document.querySelector(".audio-21")
+              : document.querySelector(".audio-" + elementNumber);
+          const labelElement =
+            elementNumber === "22"
+              ? labels.find((label) => label.className.includes("21"))
+              : labels.find((label) => label.className.includes(elementNumber));
 
-          // przedszkole
-          if (elementNumber === "22" && audioElement === null) {
-            audioElement = document.querySelector(".audio-21");
-            labelElement = labels.find((label) =>
-              label.className.includes("21")
-            );
-          }
+          hideAllLabels();
+          puaseAndHideAllAudio();
 
           if (audioElement) {
-            puaseAndHideAllAudio();
+            audioElement.play();
+            audioElement.className = audioElement.className + " show";
+            labelElement.className = labelElement.className + " show";
 
             // leśniczówka
             if (elementNumber === "26") {
               const secondAudioElement = document.querySelector(".audio-26-01");
               secondAudioElement.className =
                 secondAudioElement.className + " show";
-              console.log(secondAudioElement);
             }
-
-            audioElement.play();
-            audioElement.className = audioElement.className + " show";
-            labelElement.className = labelElement.className + " show";
           }
         })
       );
 
-      document
-        .querySelector(".map")
-        .addEventListener("click", puaseAndHideAllAudio);
+      document.querySelector(".map").addEventListener("click", () => {
+        hideAllLabels();
+        puaseAndHideAllAudio();
+      });
 
       function puaseAndHideAllAudio() {
         audioElements.forEach((el) => {
@@ -257,7 +253,9 @@
           if (el.className.includes(" show"))
             el.className = el.className.slice(0, -5);
         });
+      }
 
+      function hideAllLabels() {
         labels.forEach((el) => {
           if (el.className.includes(" show"))
             el.className = el.className.slice(0, -5);
