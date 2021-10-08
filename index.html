@@ -205,33 +205,30 @@
     <script>
       "use strict";
 
-      var iconsAndLabels = Array.from(document.querySelectorAll("img")).filter(
-        function (img) {
-          return RegExp(/\d+/).exec(img.className);
-        }
-      );
-      var audioElements = Array.from(document.querySelectorAll("audio"));
-      var labels = iconsAndLabels.filter(function (el) {
-        return el.className.includes("label");
+      var iconsAndLabels = document.querySelectorAll(".icon, .label");
+      var activeElements = [];
+
+      document.querySelector(".map").addEventListener("click", function () {
+        hideElements();
       });
 
-      iconsAndLabels.forEach(function (img) {
-        return img.addEventListener("click", function () {
+      for (var i = 0; i < iconsAndLabels.length; i++) {
+        iconsAndLabels[i].addEventListener("click", function (event) {
+          hideElements();
+
           var elementNumber = RegExp(/\d+\.png$/)
-            .exec(img.src)[0]
+            .exec(event.target.src)[0]
             .slice(0, -4);
-          var audioElement =
-            elementNumber === "22"
-              ? document.querySelector(".audio-21")
-              : document.querySelector(".audio-" + elementNumber);
-          var labelElement =
-            elementNumber === "22"
-              ? labels.find(function (label) {
-                  return label.className.includes("21");
-                })
-              : labels.find(function (label) {
-                  return label.className.includes(elementNumber);
-                });
+          if (elementNumber === "22") elementNumber = "21";
+
+          var audioElement = document.querySelector(".audio-" + elementNumber);
+          var isLabel = event.target.className.indexOf("label") >= 0;
+          var labelElement = isLabel
+            ? event.target
+            : document.querySelector(".label-" + elementNumber);
+
+          showElement(labelElement);
+
           console.log(
             "click",
             elementNumber,
@@ -240,41 +237,33 @@
             "\nlabel: ",
             labelElement
           );
-          hideAllLabels();
-          puaseAndHideAllAudio();
 
           if (audioElement) {
+            showElement(audioElement);
             audioElement.play();
-            audioElement.className = audioElement.className + " show";
-            labelElement.className = labelElement.className + " show"; // leśniczówka
 
+            // leśniczówka has 2 recordings, show both
             if (elementNumber === "26") {
               var secondAudioElement = document.querySelector(".audio-26-01");
-              secondAudioElement.className =
-                secondAudioElement.className + " show";
+              showElement(secondAudioElement);
             }
           }
         });
-      });
-
-      document.querySelector(".map").addEventListener("click", function () {
-        hideAllLabels();
-        puaseAndHideAllAudio();
-      });
-
-      function puaseAndHideAllAudio() {
-        audioElements.forEach(function (el) {
-          el.pause();
-          if (el.className.includes(" show"))
-            el.className = el.className.slice(0, -5);
-        });
       }
 
-      function hideAllLabels() {
-        labels.forEach(function (el) {
+      function hideElements() {
+        activeElements.forEach(function (el) {
           if (el.className.includes(" show"))
             el.className = el.className.slice(0, -5);
+
+          if (typeof el.pause === "function") el.pause();
         });
+        activeElements = [];
+      }
+
+      function showElement(el) {
+        activeElements.push(el);
+        el.className = el.className + " show";
       }
     </script>
   </body>
