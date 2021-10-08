@@ -13,13 +13,13 @@
         <img class="map" src="./assets/MAPY/MAPA_BEZ_IKONEK.png" />
 
         <img src="./assets/IKONKI/1.png" class="icon icon-1 el-1" />
-        <img src="./assets/IKONKI/2.png" class="icon icon-2 el-2" />
+        <img src="./assets/IKONKI/2.png" class="icon icon-2 el-2 no-audio" />
         <img src="./assets/IKONKI/3.png" class="icon icon-3 el-3" />
         <img src="./assets/IKONKI/4.png" class="icon icon-4 el-4" />
         <img src="./assets/IKONKI/5.png" class="icon icon-5 el-5" />
         <img src="./assets/IKONKI/6.png" class="icon icon-6 el-6" />
         <img src="./assets/IKONKI/7.png" class="icon icon-7 el-7" />
-        <img src="./assets/IKONKI/8.png" class="icon icon-8 el-8" />
+        <img src="./assets/IKONKI/8.png" class="icon icon-8 el-8 no-audio" />
         <img src="./assets/IKONKI/9.png" class="icon icon-9 el-9" />
         <img src="./assets/IKONKI/10.png" class="icon icon-10 el-10" />
         <img src="./assets/IKONKI/11.png" class="icon icon-11 el-11" />
@@ -40,13 +40,13 @@
         <img src="./assets/IKONKI/24.png" class="icon icon-24 el-24" />
         <img src="./assets/IKONKI/25.png" class="icon icon-25 el-25" />
         <img src="./assets/IKONKI/26.png" class="icon icon-26 el-26" />
-        <img src="./assets/IKONKI/27.png" class="icon icon-27 el-27" />
+        <img src="./assets/IKONKI/27.png" class="icon icon-27 el-27 no-audio" />
         <img src="./assets/IKONKI/28.png" class="icon icon-28 el-28" />
         <img src="./assets/IKONKI/29.png" class="icon icon-29 el-29" />
         <img src="./assets/IKONKI/30.png" class="icon icon-30 el-30" />
         <img src="./assets/IKONKI/31.png" class="icon icon-31 el-31" />
-        <img src="./assets/IKONKI/32.png" class="icon icon-32 el-32" />
-        <img src="./assets/IKONKI/33.png" class="icon icon-33 el-33" />
+        <img src="./assets/IKONKI/32.png" class="icon icon-32 el-32 no-audio" />
+        <img src="./assets/IKONKI/33.png" class="icon icon-33 el-33 no-audio" />
         <img src="./assets/IKONKI/34.png" class="icon icon-34 el-34" />
 
         <img src="./assets/CHORAGIEWKI/1.png" class="label label-1 el-1" />
@@ -204,23 +204,43 @@
 
     <script>
       "use strict";
+      alert("wersja testowa");
+
+      let isIOS =
+        (/iPad|iPhone|iPod/.test(navigator.platform) ||
+          (navigator.platform === "MacIntel" &&
+            navigator.maxTouchPoints > 1)) &&
+        !window.MSStream;
+
+      let eventType = "click";
+
+      if (isIOS) {
+        var container = document.querySelector("main");
+        container.addEventListener("touchstart", () => {});
+        container.addEventListener("touchend", () => {});
+        container.addEventListener("touchcancel", () => {});
+        container.addEventListener("touchmove", () => {});
+        container.addEventListener("click", () => {});
+
+        eventType = "touchend";
+      } else {
+        document.querySelector(".map").addEventListener("click", function () {
+          hideElements();
+        });
+        document.querySelector("main").addEventListener(
+          "click",
+          function () {
+            hideElements();
+          },
+          true
+        );
+      }
 
       var iconsAndLabels = document.querySelectorAll(".icon, .label");
       var activeElements = [];
 
-      document.querySelector(".map").addEventListener("click", function () {
-        hideElements();
-      });
-      document.querySelector("main").addEventListener(
-        "click",
-        function () {
-          hideElements();
-        },
-        true
-      );
-
       for (var i = 0; i < iconsAndLabels.length; i++) {
-        iconsAndLabels[i].addEventListener("click", function (event) {
+        iconsAndLabels[i].addEventListener(eventType, function (event) {
           hideElements();
 
           var elementNumber = RegExp(/\d+\.png$/)
@@ -235,15 +255,6 @@
             : document.querySelector(".label-" + elementNumber);
 
           showElement(labelElement);
-
-          console.log(
-            "click",
-            elementNumber,
-            "\n audio: ",
-            audioElement,
-            "\nlabel: ",
-            labelElement
-          );
 
           if (audioElement) {
             showElement(audioElement);
