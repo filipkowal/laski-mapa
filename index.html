@@ -211,6 +211,13 @@
       document.querySelector(".map").addEventListener("click", function () {
         hideElements();
       });
+      document.querySelector("main").addEventListener(
+        "click",
+        function () {
+          hideElements();
+        },
+        true
+      );
 
       for (var i = 0; i < iconsAndLabels.length; i++) {
         iconsAndLabels[i].addEventListener("click", function (event) {
