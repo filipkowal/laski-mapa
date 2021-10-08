@@ -232,6 +232,14 @@
               : labels.find(function (label) {
                   return label.className.includes(elementNumber);
                 });
+          console.log(
+            "click",
+            elementNumber,
+            "\n audio: ",
+            audioElement,
+            "\nlabel: ",
+            labelElement
+          );
           hideAllLabels();
           puaseAndHideAllAudio();
 

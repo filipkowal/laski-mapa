@@ -5,18 +5,8 @@
 * Browsers: defaults,iOS > 3.2
 */
 
-@font-face {
-  font-family: "KhmerFallback";
-  src: url("./assets/Khmer-Regular.woff") format("woff"),
-    url("./assets/Khmer-Regular.ttf") format("truetype");
-}
-:root {
-  --background: #124734;
-  font-family: "Khmer" "KhmerFallback";
-}
-
 body {
-  background-color: var(--background);
+  background-color: #124734;
   margin: 0;
 }
 main {
@@ -277,8 +267,8 @@ img:hover {
 
 .label {
   position: absolute;
-  -webkit-transform: scale(51%) translateX(80%) translateY(-50%);
-  transform: scale(51%) translateX(80%) translateY(-50%);
+  -webkit-transform: scale(0.51) translateX(80%) translateY(-50%);
+  transform: scale(0.51) translateX(80%) translateY(-50%);
   cursor: pointer;
 }
 .label:not(.show) {
