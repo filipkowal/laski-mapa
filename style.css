@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: defaults,iOS > 3.2
+*/
+
 @font-face {
   font-family: "KhmerFallback";
   src: url("./assets/Khmer-Regular.woff") format("woff"),
@@ -30,13 +37,16 @@ main {
 
 audio {
   position: fixed;
+  left: -webkit-calc(50%);
   left: calc(50%);
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   bottom: 17%;
   display: none;
 }
 
 .audio-26-01 {
+  -webkit-transform: translateY(103%) translateX(-50%);
   transform: translateY(103%) translateX(-50%);
 }
 .show {
@@ -53,6 +63,7 @@ img:hover {
 }
 
 .icon:hover:not(.icon-2, .label-2, .icon-8, .label-8, .label-22, .icon-27, .label-27, .icon-32, .label-32, .icon-33, .label-33) {
+  -webkit-transform: scale(1.2);
   transform: scale(1.2);
 }
 
@@ -266,6 +277,7 @@ img:hover {
 
 .label {
   position: absolute;
+  -webkit-transform: scale(51%) translateX(80%) translateY(-50%);
   transform: scale(51%) translateX(80%) translateY(-50%);
   cursor: pointer;
 }
