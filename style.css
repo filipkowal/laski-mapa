@@ -12,6 +12,7 @@ body {
 }
 main {
   text-align: center;
+  cursor: initial;
 }
 .map-wrapper {
   margin-left: auto;
@@ -51,10 +52,6 @@ img:hover {
 .icon {
   position: absolute;
   cursor: pointer;
-}
-
-.icon.no-audio {
-  filter: grayscale(1);
 }
 
 .icon:hover:not(.icon-2, .label-2, .icon-8, .label-8, .label-22, .icon-27, .label-27, .icon-32, .label-32, .icon-33, .label-33) {
